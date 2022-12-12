@@ -1,0 +1,172 @@
+CHIP Mult{
+	IN a[16], b[16];
+	OUT out[16];
+	PARTS:
+	Mux16(a=false, b=a, sel=b[0], out=out1);
+	
+	Mux16(a=false, b=a, sel=b[1], out=out2);
+	BitShiftL(x=out2, out = s1out);
+	Add16(a=out1,b=s1out, out = aout2);
+	
+	Mux16(a=false, b=a, sel=b[2], out=out3);
+	BitShiftL(x=out3, out = s2out);
+	BitShiftL(x=s2out, out = s3out);
+	Add16(a=aout2,b=s3out, out = aout3);
+	
+	Mux16(a=false, b=a, sel=b[3], out=out4);
+	BitShiftL(x=out4, out = s5out);
+	BitShiftL(x=s5out, out = s6out);
+	BitShiftL(x=s6out, out = s7out);
+	Add16(a=aout3,b=s7out, out = aout4);
+	
+	Mux16(a=false, b=a, sel=b[4], out=out5);
+	BitShiftL(x=out5, out = s8out);
+	BitShiftL(x=s8out, out = s9out);
+	BitShiftL(x=s9out, out = s10out);
+	BitShiftL(x=s10out, out = s11out);
+	Add16(a=aout4,b=s11out, out = aout5);
+	
+	Mux16(a=false, b=a, sel=b[5], out=out6);
+	BitShiftL(x=out6, out = s12out);
+	BitShiftL(x=s12out, out = s13out);
+	BitShiftL(x=s13out, out = s14out);
+	BitShiftL(x=s14out, out = s15out);
+	BitShiftL(x=s15out, out = s17out);
+	Add16(a=aout5,b=s17out, out = aout6);
+	
+	Mux16(a=false, b=a, sel=b[6], out=out7);
+	BitShiftL(x=out7, out = s18out);
+	BitShiftL(x=s18out, out = s19out);
+	BitShiftL(x=s19out, out = s20out);
+	BitShiftL(x=s20out, out = s21out);
+	BitShiftL(x=s21out, out = s22out);
+	BitShiftL(x=s22out, out = s23out);
+	Add16(a=aout6,b=s23out, out = aout7);
+	
+	
+	Mux16(a=false, b=a, sel=b[7], out=out8);
+	BitShiftL(x=out8, out = s24out);
+	BitShiftL(x=s24out, out = s25out);
+	BitShiftL(x=s25out, out = s26out);
+	BitShiftL(x=s26out, out = s27out);
+	BitShiftL(x=s27out, out = s28out);
+	BitShiftL(x=s28out, out = s29out);
+	BitShiftL(x=s29out, out = s30out);
+	Add16(a=aout7,b=s30out, out = aout8);
+	
+	Mux16(a=false, b=a, sel=b[8], out=out9);
+	BitShiftL(x=out9, out = s31out);
+	BitShiftL(x=s31out, out = s32out);
+	BitShiftL(x=s32out, out = s33out);
+	BitShiftL(x=s33out, out = s34out);
+	BitShiftL(x=s34out, out = s35out);
+	BitShiftL(x=s35out, out = s36out);
+	BitShiftL(x=s36out, out = s37out);
+	BitShiftL(x=s37out, out = s38out);
+	Add16(a=aout8,b=s38out, out = aout9);
+	
+	Mux16(a=false, b=a, sel=b[9], out=out10);
+	BitShiftL(x=out10, out = s39out);
+	BitShiftL(x=s39out, out = s40out);
+	BitShiftL(x=s40out, out = s41out);
+	BitShiftL(x=s41out, out = s42out);
+	BitShiftL(x=s42out, out = s43out);
+	BitShiftL(x=s43out, out = s44out);
+	BitShiftL(x=s44out, out = s45out);
+	BitShiftL(x=s45out, out = s47out);
+	BitShiftL(x=s47out, out = s48out);
+	Add16(a=aout9,b=s48out, out = aout10);
+	
+	Mux16(a=false, b=a, sel=b[10], out=out11);
+	BitShiftL(x=out11, out = s49out);
+	BitShiftL(x=s49out, out = s50out);
+	BitShiftL(x=s50out, out = s51out);
+	BitShiftL(x=s51out, out = s52out);
+	BitShiftL(x=s52out, out = s53out);
+	BitShiftL(x=s53out, out = s54out);
+	BitShiftL(x=s54out, out = s55out);
+	BitShiftL(x=s55out, out = s56out);
+	BitShiftL(x=s56out, out = s57out);
+	BitShiftL(x=s57out, out = s58out);
+	Add16(a=aout10,b=s58out, out = aout11);
+	
+	Mux16(a=false, b=a, sel=b[11], out=out12);
+	BitShiftL(x=out12, out = s59out);
+	BitShiftL(x=s59out, out = s60out);
+	BitShiftL(x=s60out, out = s61out);
+	BitShiftL(x=s61out, out = s62out);
+	BitShiftL(x=s62out, out = s63out);
+	BitShiftL(x=s63out, out = s64out);
+	BitShiftL(x=s64out, out = s65out);
+	BitShiftL(x=s65out, out = s66out);
+	BitShiftL(x=s66out, out = s67out);
+	BitShiftL(x=s67out, out = s68out);
+	BitShiftL(x=s68out, out = s69out);
+	Add16(a=aout11,b=s69out, out = aout12);
+	
+	Mux16(a=false, b=a, sel=b[12], out=out13);
+	BitShiftL(x=out13, out = s70out);
+	BitShiftL(x=s70out, out = s71out);
+	BitShiftL(x=s71out, out = s72out);
+	BitShiftL(x=s72out, out = s73out);
+	BitShiftL(x=s73out, out = s75out);
+	BitShiftL(x=s75out, out = s76out);
+	BitShiftL(x=s76out, out = s77out);
+	BitShiftL(x=s77out, out = s78out);
+	BitShiftL(x=s78out, out = s79out);
+	BitShiftL(x=s79out, out = s80out);
+	BitShiftL(x=s80out, out = s81out);
+	BitShiftL(x=s81out, out = s82out);
+	Add16(a=aout12,b=s82out, out = aout13);
+	
+	Mux16(a=false, b=a, sel=b[13], out=out14);
+	BitShiftL(x=out14, out = s83out);
+	BitShiftL(x=s83out, out = s84out);
+	BitShiftL(x=s84out, out = s85out);
+	BitShiftL(x=s85out, out = s86out);
+	BitShiftL(x=s86out, out = s87out);
+	BitShiftL(x=s87out, out = s88out);
+	BitShiftL(x=s88out, out = s89out);
+	BitShiftL(x=s89out, out = s90out);
+	BitShiftL(x=s90out, out = s91out);
+	BitShiftL(x=s91out, out = s92out);
+	BitShiftL(x=s92out, out = s93out);
+	BitShiftL(x=s93out, out = s94out);
+	BitShiftL(x=s94out, out = s95out);
+	Add16(a=aout13,b=s95out, out = aout14);
+	
+	Mux16(a=false, b=a, sel=b[14], out=out15);
+	BitShiftL(x=out15, out = s96out);
+	BitShiftL(x=s96out, out = s97out);
+	BitShiftL(x=s97out, out = s98out);
+	BitShiftL(x=s98out, out = s99out);
+	BitShiftL(x=s99out, out = s100out);
+	BitShiftL(x=s100out, out = s101out);
+	BitShiftL(x=s101out, out = s102out);
+	BitShiftL(x=s102out, out = s103out);
+	BitShiftL(x=s103out, out = s104out);
+	BitShiftL(x=s104out, out = s105out);
+	BitShiftL(x=s105out, out = s106out);
+	BitShiftL(x=s106out, out = s107out);
+	BitShiftL(x=s107out, out = s108out);
+	BitShiftL(x=s108out, out = s109out);
+	Add16(a=aout14,b=s109out, out = aout15);
+	
+	Mux16(a=false, b=a, sel=b[15], out=out16);
+	BitShiftL(x=out16, out = s196out);
+	BitShiftL(x=s196out, out = s197out);
+	BitShiftL(x=s197out, out = s198out);
+	BitShiftL(x=s198out, out = s199out);
+	BitShiftL(x=s199out, out = s1100out);
+	BitShiftL(x=s1100out, out = s1101out);
+	BitShiftL(x=s1101out, out = s1102out);
+	BitShiftL(x=s1102out, out = s1103out);
+	BitShiftL(x=s1103out, out = s1104out);
+	BitShiftL(x=s1104out, out = s1105out);
+	BitShiftL(x=s1105out, out = s1106out);
+	BitShiftL(x=s1106out, out = s1107out);
+	BitShiftL(x=s1107out, out = s1108out);
+	BitShiftL(x=s1108out, out = s11091out);
+	BitShiftL(x=s11091out, out = s1111out);
+	Add16(a=aout15,b=s1111out, out = out);
+}

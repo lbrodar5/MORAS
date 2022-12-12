@@ -1,0 +1,21 @@
+CHIP BitShiftL{
+	IN x[16];
+	OUT out[16];
+	PARTS:
+	Or(a=false, b=false, out=out[0]);
+	Or(a=x[0] ,b=false ,out=out[1]);
+	Or(a=x[1] ,b=false ,out=out[2]);
+	Or(a=x[2] ,b=false ,out=out[3]);
+	Or(a=x[3] ,b=false ,out=out[4]);
+	Or(a=x[4] ,b=false ,out=out[5]);
+	Or(a=x[5] ,b=false ,out=out[6]);
+	Or(a=x[6] ,b=false ,out=out[7]);
+	Or(a=x[7] ,b=false ,out=out[8]);
+	Or(a=x[8] ,b=false ,out=out[9]);
+	Or(a=x[9] ,b=false ,out=out[10]);
+	Or(a=x[10] ,b=false ,out=out[11]);
+	Or(a=x[11] ,b=false ,out=out[12]);
+	Or(a=x[12] ,b=false ,out=out[13]);
+	Or(a=x[13] ,b=false ,out=out[14]);
+	Or(a=x[14] ,b=false ,out=out[15]);
+}
