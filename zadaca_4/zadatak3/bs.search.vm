@@ -1,0 +1,37 @@
+push constant 2048
+push constant 7
+push constant 4
+
+call bs.search.BS.search 3
+
+
+label END
+goto END
+
+
+function bs.search.BS.search 3
+	push argument 1
+	push constant 2
+	call bs.search.Div 2
+	return
+	
+function bs.search.Div 2
+	push argument 0
+	pop local 0
+label LOOP
+	push argument 1
+	push local 0
+	gt
+	if-goto END
+		push local 0
+		push argument 1
+		sub
+		pop local 0
+		push constant 1
+		push local 1
+		add
+		pop local 1
+	goto LOOP
+label END
+	push local 1
+	return

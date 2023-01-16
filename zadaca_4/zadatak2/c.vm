@@ -1,0 +1,45 @@
+push constant 15
+push constant 3
+
+call c.Div 2
+
+label END
+goto END
+
+function c.Mod 2
+	push argument 0
+	pop local 0
+label LOOP
+	push argument 1
+	push local 0
+	gt
+	if-goto END
+		push local 0
+		push argument 1
+		sub
+		pop local 0
+	goto LOOP
+label END
+	push local 0
+	return
+	
+function c.Div 2
+	push argument 0
+	pop local 0
+label LOOP
+	push argument 1
+	push local 0
+	gt
+	if-goto END
+		push local 0
+		push argument 1
+		sub
+		pop local 0
+		push constant 1
+		push local 1
+		add
+		pop local 1
+	goto LOOP
+label END
+	push local 1
+	return

@@ -1,0 +1,48 @@
+push constant 10
+push constant 13
+push constant 12
+
+call mid.Mid 3
+
+label END
+goto END
+
+function mid.Max 2
+	push argument 0
+	push argument 1
+	gt
+	if-goto pv
+	push argument 1
+	goto END
+
+label pv
+	push argument 0
+
+label END
+	return
+
+function mid.Min 2
+	push argument 0
+	push argument 1
+	gt
+	if-goto pv
+	push argument 0
+	goto END
+
+label pv
+	push argument 1
+
+label END
+	return
+	
+function mid.Mid 3
+	push argument 0
+	push argument 1
+	push argument 2
+	call mid.Min 2
+	pop local 0
+	push argument 1
+	call mid.Min 2
+	push local 0
+	call mid.Max 2
+	return
