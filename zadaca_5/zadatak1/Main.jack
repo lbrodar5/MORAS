@@ -1,0 +1,73 @@
+class Main
+{
+    function int partition(Array A, int p, int q){
+        var int x, i, j, t;
+
+        let x = A[p];
+        let i = p;
+        let j = p + 1;
+        while(~(j > q))
+        {
+            if(~(A[j] > x))
+            {
+                let i = i + 1;
+                let t = A[i];
+                let A[i] = A[j];
+                let A[j] = t;
+            }
+            let j = j + 1;
+        }
+        let t = A[p];
+        let A[p] = A[i];
+        let A[i] = t;
+
+        return i;
+    }
+
+    function void qsort(Array A,int p ,int r){
+        var int q;
+        if(~(p < r)){
+            return;
+        }
+
+        let q = Main.partition(A,p,r);
+        do Main.qsort(A,p,q-1);
+        do Main.qsort(A,q+1,r);
+        return;
+    }
+
+
+    function void main()
+    {
+        var int i;
+        var Array A;
+
+        let A = Array.new(5);
+        let i = 0;
+
+        while(i < 5)
+        {
+            let A[i] = 5 - i;
+            let i = i + 1;
+        }
+
+
+        let i = 0;
+        while(i < 5)
+        {
+            do Output.printInt(A[i]);
+            let i = i + 1;
+        }
+        do Output.println();
+        do Main.qsort(A,0,4);
+
+        let i = 0;
+        while(i < 5)
+        {
+            do Output.printInt(A[i]);
+            let i = i + 1;
+        }
+        do A.dispose();
+        return;
+    }
+}

@@ -1,0 +1,87 @@
+class Main
+{
+    function void main()
+    {
+        var int i;
+        var Vector A,B;
+        var boolean p;
+
+
+        let A = Vector.new(4);
+        let B = Vector.new(3);
+
+                
+        do Output.printInt(A.len());
+        do Output.printString(" ");
+        do Output.printInt(B.len());
+        do Output.println();
+
+        let i = 0;
+        while(i < 16)
+        {
+            do A.set(i,i+1);
+            let i = i + 1;
+        }
+
+        let i = 0;
+        while(i < 16)
+        {
+            do Output.printInt(A.get(i));
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+
+        do A.resize(3);
+
+        do Output.println();
+
+        let i = 0;
+        while(i < 8)
+        {
+            do Output.printInt(A.get(i));
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+
+        let i = 0;
+        while(i < 8)
+        {
+            do B.set(i,i+1);
+            let i = i + 1;
+        }
+
+        let p = Vector.is_eq(A,B);
+
+        if(p)
+        {
+            do Output.printString("Vektori su jednaki.");
+        }
+
+        let i = 0;
+        while(i < 8)
+        {
+            do B.set(i,8-i);
+            let i = i + 1;
+        }
+
+        do Output.println();
+
+        let i = 0;
+        while(i < 8)
+        {
+            do Output.printInt(B.get(i));
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+
+
+        let p = Vector.elems(A,B);
+
+        if(p)
+        {
+            do Output.printString("Vektori imaju jednake elemente.");
+        }
+
+        return;
+    }
+}

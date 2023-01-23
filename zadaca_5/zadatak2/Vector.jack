@@ -1,0 +1,143 @@
+class Vector
+{
+    field int capacity;
+    field Array container;
+
+    constructor Vector new(int n)
+    {
+        var int i;
+        let capacity = 1;
+
+        let i = 0;
+        while(i < n)
+        {
+            let capacity = capacity * 2;
+            let i = i + 1;
+        }
+
+        let container = Array.new(capacity);
+
+        return this;
+    }
+    
+    method int len()
+    {
+        return capacity;
+    }
+
+    method void set(int k, int v)
+    {
+        let container[k] = v;
+        return;
+    }
+    method int get(int k)
+    {
+        return container[k];
+    }
+
+    method void resize(int m)
+    {
+        var int i;
+        var Array temp;
+
+        let capacity = 1;
+
+        if(~(m < 0))
+        {
+            let i = 0;
+            while(i < m)
+            {
+                let capacity = capacity * 2;
+                let i = i + 1;
+            }
+        }
+
+        let temp = Array.new(capacity);
+
+        let i = 0;
+        while(i < capacity)
+        {
+            let temp[i] = container[i];
+            let i = i + 1;
+        }
+
+        let container = Array.new(capacity);
+
+        let i = 0;
+        while(i < capacity)
+        {
+            let container[i] = temp[i];
+            let i = i + 1;
+        }
+
+        do temp.dispose();
+        return;
+    }
+
+    function boolean is_eq(Vector A, Vector B)
+    {
+        var int i;
+
+        if(A.len() = B.len())
+        {
+            let i = 0;
+            while(i < A.len())
+            {
+                if(~(A.get(i) = B.get(i)))
+                {
+                    return false;
+                }
+                let i = i + 1;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    function boolean elems(Vector A, Vector B)
+    {
+        var int i,j,len;
+        var boolean p;
+
+        let len = A.len();
+
+        if(len = B.len())
+        {
+            let i = 0;
+            while(i < len)
+            {
+                let p = true;
+                let j = 0;
+                while(j < len)
+                {
+                    if(A.get(i) = B.get(j))
+                    {
+                        let p = false;
+                    }
+                    let j = j + 1;
+                }
+                if(p)
+                {
+                    return false;
+                }
+                let i = i + 1;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    method void dispose(){
+        do container.dispose();
+        do Memory.deAloc(this);
+        return;
+    }
+}
